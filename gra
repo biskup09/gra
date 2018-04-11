@@ -1,0 +1,850 @@
+#include <iostream>
+#include <windows.h>
+#include <stdio.h>
+#include <cstdlib>
+#include <conio.h>
+#include <time.h>
+#include <iomanip>
+#include <string>
+
+
+using namespace std;
+
+ int wilk_0=15, scierwojad_0=20, zjawa_0=30;
+ int mieso=10, m_miksturka=25, s_miksturka=50,  d_miksturka=100;
+ int c;
+ int lecz=0, m_m_lecz=0, s_m_lecz=0, d_m_lecz=0;
+ int sila;
+ char wybor, wybor1, wybor2, wybor3, wybor4, wybor5, wybor6, wybor7, wybor8, wybor9, wybor10, wybor11, wybor12, wybor13, wybor14, wybor15, wybor16, wybor17, wybor18, wybor19, wybor20;
+
+  int exp=0;
+  int lvl=0;
+  int gracz=50;
+
+  class Bron
+  {
+      int laga()
+      {
+
+      }
+  };
+  void rysuj_zdjecie2(FILE *kufer)
+    {
+        char read_string2[200];
+        while(fgets(read_string2,sizeof(read_string2),kufer) != NULL)
+        printf("%s",read_string2);
+    }
+    void rysuj_zdjecie(FILE *napis)
+    {
+        char read_string2[200];
+        while(fgets(read_string2,sizeof(read_string2),napis) != NULL)
+        printf("%s",read_string2);
+    }
+
+
+ class Bohater
+ {
+     public:
+  int exp=0;
+  int lvl=0;
+  int gracz=50;
+
+ };
+
+ class Zapis
+ {
+     public:
+     void zapisz()
+     {
+         FILE * save = fopen ( "save.sav", "w" );
+         fprintf( save, "%01d, %01d, 01d, %01d", & lecz, & m_m_lecz, & s_m_lecz, & d_m_lecz, & exp, &
+               lvl, & gracz);
+               system ("pause");
+
+               fclose ( save );
+     }
+     void wczytaj()
+      {
+
+       FILE * save = fopen( "save.sav", "r");
+       fprintf (save, "01d, %01d, %01d, %01d", & lecz, & m_m_lecz, & s_m_lecz, & d_m_lecz, & exp, &
+               lvl, & gracz);
+               system ("pause");
+                fclose (save);
+
+      }
+
+ };
+
+ class Przeciwnicy
+ {
+ public:
+
+
+
+void rysuj_zdjecie1(FILE *postac)
+{
+    char read_string1[200];
+
+    while(fgets(read_string1,sizeof(read_string1),postac) != NULL)
+        printf("%s",read_string1);
+}
+
+
+ void rysuj_zdjecie(FILE *postac)
+{
+    char read_string[200];
+
+    while(fgets(read_string,sizeof(read_string),postac) != NULL)
+        printf("%s",read_string);
+}
+
+void rysuj_zdjecie3(FILE *postac)
+{
+    char read_string1[200];
+
+    while(fgets(read_string1,sizeof(read_string1),postac) != NULL)
+        printf("%s",read_string1);
+}
+
+
+ void rysuj_zdjecie4(FILE *postac)
+{
+    char read_string[200];
+
+    while(fgets(read_string,sizeof(read_string),postac) != NULL)
+        printf("%s",read_string);
+}
+ void rysuj_zdjecie5(FILE *postac)
+ {
+     char read_string[200];
+
+     while(fgets(read_string,sizeof(read_string),postac) != NULL)
+        printf("%s",read_string);
+ }
+
+
+
+   int wilk()
+   {
+                          cout<<"Ilosc zyc wilka "<<wilk_0<<endl;
+                        cout << "Atakujesz wilka "<<endl;
+                          cout<<"_______________________________"<<endl;
+
+while (wilk_0>0)
+{
+                char *nazwa_pliku = "C:\\programowanie\\gra\\obrazki\\image.txt";
+                FILE *postac = NULL;
+                char *nazwa_pliku1 = "C:\\programowanie\\gra\\obrazki\\image2.txt";
+                FILE *postac1 = NULL;
+
+                            if(((postac = fopen(nazwa_pliku,"r")) == NULL)||((postac1 = fopen(nazwa_pliku1,"r")) == NULL))
+                            {
+                                fprintf(stderr,"Niema takiego pliku%s\n",nazwa_pliku, nazwa_pliku1);
+                                return 1;
+
+                            }
+                                int  c=(rand() % 3)  + 4;
+                                wilk_0=wilk_0-c;
+
+                                int  d=(rand() % 2)  +2;
+                                rysuj_zdjecie1 (postac1);
+
+
+
+                                cout<<endl;
+                                 cout << "Obrazenia jakie zadales "<<c<<endl;
+                                 Sleep(1500);
+
+
+
+                                   if(wilk_0>1)
+                                   {
+                                       rysuj_zdjecie (postac);
+                                       cout<<endl;
+                                    cout << "Obrazenia jakie otrzymales "<<d<<endl;
+                                    gracz=gracz-d;
+                                    Sleep(1500);
+
+                                   }
+
+                                   cout<<"_______________________________"<<endl;
+                                   cout << "Pozostalo ci zyc "<<gracz<<endl;
+
+                                     if(wilk_0>0)
+                                        {
+                                          cout<<"Ilosc zyc wilka "<<wilk_0<<endl;
+                                          cout<<"_______________________________"<<endl;
+                                        Sleep(1500);
+                                        }
+
+                                     else;
+
+
+}
+                            cout<<"Ilosc zyc wilk: 0"<<endl;
+
+                            srand(time(NULL));
+                            int  a=(rand() % 3)  + 1;
+                               lecz=lecz+a;
+                                  cout << "Wilk zostal pokany zdobyles "<< a <<" mieso ktorym mozesz sie uzdrowic doda ci 10 pkt. hp "<<endl;
+
+                                     cout <<"Uzyskales 25 pkt. doswiadczenia"<<endl;
+                                      exp=exp+25;
+                                       if(exp>250)
+                                          {
+                                             lvl++;
+                                             gracz=gracz+15;
+                                             cout << "osiagnales: " <<lvl<<" poziom"<<endl;
+
+                                          }
+                                             else;
+                                             wilk_0=wilk_0-wilk_0+15;
+
+}
+   int scierwojad()
+   {
+    cout << "Atakujesz scierowojada "<<endl;
+
+
+                          cout<<"Ilosc zyc scierojada "<<scierwojad_0<<endl;
+                           cout<<"_______________________________"<<endl;
+                            do
+                            {
+                                 char *nazwa_pliku2 = "C:\\programowanie\\gra\\obrazki\\image4.txt";
+                                 FILE *postac3 = NULL;
+                                 char *nazwa_pliku3 = "C:\\programowanie\\gra\\obrazki\\image5.txt";
+                                 FILE *postac4 = NULL;
+                                 if(((postac3 = fopen(nazwa_pliku2,"r")) == NULL)||((postac4 = fopen(nazwa_pliku3,"r")) == NULL))
+                            {
+                                fprintf(stderr,"Niema takiego pliku%s\n",nazwa_pliku2, nazwa_pliku3);
+                                return 1;
+
+                            }
+
+                               int  c=(rand() % 3)  + 4;
+                                scierwojad_0=scierwojad_0-c;
+                                int  d=(rand() % 2)  +4;
+
+                                rysuj_zdjecie3(postac3);
+                                   cout<<endl;
+                                   cout << "Obrazenia jakie zadales "<<c<<endl;
+
+
+                                Sleep(1500);
+
+                                if(scierwojad_0>=1) //nie wyswietla i nie atakuje stwora jezeli zabijesz wczesniej stwora
+                                {
+                                     rysuj_zdjecie1 (postac4);
+                                     cout<<endl;
+                                     cout << "Obrazenia jakie otrzymales "<<d<<endl;
+                                     gracz=gracz-d;
+                                    Sleep(1500);
+                                }
+
+
+                                    cout<<"_______________________________"<<endl;
+                                   cout << "Pozostalo ci zyc "<<gracz<<endl;
+                                     if(scierwojad_0>=0)
+                                     {
+                                     cout<<"Ilosc zyc scierwojada: "<<scierwojad_0<<endl;
+                                      cout<<"_______________________________"<<endl;
+                                      Sleep(1500);
+                                     }
+                                     else;
+
+                            }while (scierwojad_0>0);
+
+                            int  z=(rand() % 3)  + 1;
+                             lecz=lecz+z;
+                                 cout << "Scierwojad zostal pokany zdobyles "<< z <<" sztuk miesa ktorym mozesz sie uzdrowic doda Ci 10 pkt. hp "<<endl;
+                                  cout <<"Uzyskales 25 pkt. doswiadczenia"<<endl;
+                                      exp=exp+25;
+                                       if(exp>250)
+                                          {
+                                             lvl++;
+                                             gracz=gracz+15;
+                                             cout << "osiagnales: " <<lvl<<" poziom"<<endl;
+
+                                          }
+                                             else;
+
+                                                 scierwojad_0=scierwojad_0-scierwojad_0+20;
+
+}
+
+  int zjawa()
+  {
+
+       cout << "Atakujesz zjawe " << endl;
+       cout << "Ilosc zyc zjawy " << zjawa_0<<endl;
+       cout<<"_______________________________"<<endl;
+
+
+       do
+        {
+            int c=(rand() % 6) +8;
+            zjawa_0=zjawa_0-c;
+            int d=(rand() % 4) +6;
+            gracz=gracz-d;
+
+            cout << endl;
+            cout << "Obrazenia jakie zadales "<<c<<endl;
+            cout << "Obrazenia jakie otrzymales "<<d<<endl;
+            cout<<"_______________________________"<<endl;
+            Sleep(1500);
+            cout<<"_______________________________"<<endl;
+                                   cout << "Pozostalo ci zyc "<<gracz<<endl;
+                                     if(zjawa_0>=0)
+                                     {
+                                     cout<<"Ilosc zyc zjawy: "<<zjawa_0<<endl;
+                                      cout<<"_______________________________"<<endl;
+                                      Sleep(1500);
+                                     }
+
+
+
+
+
+
+
+        }while (zjawa_0>0);
+         cout << "Zjawa zostala pokana znalazles przyneij klucz "<<endl;
+                                  cout <<"Uzyskales 40 pkt. doswiadczenia"<<endl;
+                                      exp=exp+40;
+                                       if(exp>400)
+                                          {
+                                             lvl++;
+                                             gracz=gracz+15;
+                                             cout << "osiagnales: " <<lvl<<" poziom"<<endl;
+
+                                          }
+                                             else;
+
+        zjawa_0=zjawa_0-zjawa_0+30;
+  }
+ };
+
+
+class Leczenie
+
+{
+public:
+
+ int leczenie_d1 (int lecz4)
+{
+
+                                         do
+                                         {
+
+
+
+                                            if(d_m_lecz>0)//sprawdza czy gracz posiada przedmiot leczacy
+                                              {
+                                                gracz=gracz+d_miksturka;
+                                                d_m_lecz=d_m_lecz-1;
+                                                 if(gracz<=50) //sprawdza ilosc zyc gracza jest mniejsz od 50 jesli tak to leczy gracza
+                                                {
+
+                                                   cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                   cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                }
+                                                  else if(lvl == 0 ) //ten if nie pozwala przekroczyc limitu zyc gracza czyli 50 na danym poziomie.
+                                                  {
+                                                      gracz=gracz-gracz+50;
+                                                      cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                      cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                  }
+                                                    else if (lvl== 1)
+                                                        {
+                                                      gracz=gracz-gracz+65;
+                                                      cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                      cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                  }
+                                                  else if (lvl== 2)
+                                                        {
+                                                      gracz=gracz-gracz+65;
+                                                      cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                      cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                  }
+                                              }
+
+                                            else cout << "Niemasz sie czym uleczyc " ;
+                                              }while((gracz<50) && (lecz>0) || (gracz<65) && (lecz>0) || (gracz<80) && (lecz>0) );
+
+
+
+}
+
+ int leczenie_s1 (int lecz3)
+ {
+
+                                         do
+                                         {
+
+
+
+                                            if(s_m_lecz>0)//sprawdza czy gracz posiada przedmiot leczacy
+                                              {
+                                                gracz=gracz+s_miksturka;
+                                                s_m_lecz=s_m_lecz-1;
+                                                   if(gracz<=50) //sprawdza ilosc zyc gracza jest mniejsz od 50 jesli tak to leczy gracza
+                                                {
+
+                                                   cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                   cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                }
+                                                  else if(lvl == 0 ) //ten if nie pozwala przekroczyc limitu zyc gracza czyli 50 na danym poziomie.
+                                                  {
+                                                      gracz=gracz-gracz+50;
+                                                      cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                      cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                  }
+                                                    else if (lvl== 1)
+                                                        {
+                                                      gracz=gracz-gracz+65;
+                                                      cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                      cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                  }
+                                                  else if (lvl== 2)
+                                                        {
+                                                      gracz=gracz-gracz+65;
+                                                      cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                      cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                  }
+                                              }
+
+                                            else cout << "Niemasz sie czym uleczyc " ;
+                                              }while((gracz<50) && (lecz>0) || (gracz<65) && (lecz>0) || (gracz<80) && (lecz>0) );
+
+
+
+
+ }
+
+ int leczenie_m1 (int lecz2)
+ {
+
+                                         do
+                                         {
+
+
+                                            if(m_m_lecz>0)//sprawdza czy gracz posiada przedmiot leczacy
+                                              {
+                                                gracz=gracz+m_miksturka;
+                                                m_m_lecz=m_m_lecz-1;
+                                                   if(gracz<=65) //sprawdza ilosc zyc gracza jest mniejsz od 50 jesli tak to leczy gracza
+                                                {
+
+                                                   cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                   cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                }
+                                                  else if(lvl == 0 ) //ten if nie pozwala przekroczyc limitu zyc gracza czyli 50 na danym poziomie.
+                                                  {
+                                                      gracz=gracz-gracz+50;
+                                                      cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                      cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                  }
+                                                    else if (lvl== 1)
+                                                        {
+                                                      gracz=gracz-gracz+65;
+                                                      cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                      cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                  }
+                                                  else if (lvl== 2)
+                                                        {
+                                                      gracz=gracz-gracz+65;
+                                                      cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                      cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                  }
+                                              }
+
+                                            else cout << "Niemasz sie czym uleczyc " ;
+                                              }while((gracz<50) && (lecz>0) || (gracz<65) && (lecz>0) || (gracz<80) && (lecz>0) );
+
+
+
+
+ }
+
+ int leczenie (int lecz1)
+ {
+
+
+
+                                         do
+                                         {
+
+
+
+                                            if(lecz>0)//sprawdza czy gracz posiada przedmiot leczacy
+                                              {
+                                                gracz=gracz+mieso;
+                                                lecz=lecz-1;
+                                                  if((gracz<=50) || (gracz<=65) || (gracz<=80)) //sprawdza ilosc zyc gracza jest mniejsz od 50 jesli tak to leczy gracza
+                                                {
+
+                                                   cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                   cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                }
+                                                  else if(lvl == 0 ) //ten if nie pozwala przekroczyc limitu zyc gracza czyli 50 na danym poziomie.
+                                                  {
+                                                      gracz=gracz-gracz+50;
+                                                      cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                      cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                  }
+                                                    else if (lvl== 1)
+                                                        {
+                                                      gracz=gracz-gracz+65;
+                                                      cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                      cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                  }
+                                                  else if (lvl== 2)
+                                                        {
+                                                      gracz=gracz-gracz+65;
+                                                      cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
+                                                      cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
+                                                  }
+                                              }
+
+                                            else cout << "Niemasz sie czym uleczyc " ;
+                                              }while((gracz<50) && (lecz>0) || (gracz<65) && (lecz>0) || (gracz<80) && (lecz>0) );
+
+
+
+
+
+
+
+ }
+
+
+int wybor_leczenia()
+ {
+
+ cout << "Czy chcesz sie uzdrowic "<<endl;
+                        cout << "1. Tak"<<endl;
+                        cout << "2. Nie"<<endl;
+
+                                wybor4=getch();
+
+                                switch (wybor4)
+                                {
+                                    case '1':
+                                              cout << "Czym chcesz sie uzdrowic?"<<endl;
+                                              cout << "1. Miesem?"<<endl;
+                                              cout << "2. Mala miksturka?"<<endl;
+                                              cout << "3. Srednia miksturka?"<<endl;
+                                              cout << "4. Duza miksturka?"<<endl;
+                                                wybor6=getch();
+                                              switch(wybor6)
+
+    {
+        case '4':
+         leczenie_d1(d_miksturka);
+        break;
+          case '3':
+         leczenie_s1(s_miksturka);
+        break;
+         case '2':
+        leczenie_m1(m_miksturka);
+        break;
+         case '1':
+        leczenie(mieso);
+        break;
+
+    }
+                             }
+}
+
+ };
+
+int main()
+{
+    for(;;)
+{
+    srand(time(NULL));
+    cout << "................."  << endl;
+    cout << "|Menu Glowne    |"  << endl;
+    cout << "''''''''''''''''' "  << endl;
+    cout << "1. Start"           << endl;
+    cout << "2. Statystyki"      << endl;
+    cout << "3. Autor"           << endl;
+    cout << "4. Koniec programu" << endl;
+
+      cout << "Wybierz " << endl;
+      wybor=getch();
+
+      switch(wybor)
+      {
+      case '1':
+          cout << endl;
+          {
+
+
+               string napis = "Witaj nieznajomy zostales wybrany do poszukiwania skradzionego \nartefaktu ktory jest potrzebyny do powstrzmania ndchodzacego zla. \nWezwanego przez kaplna ktory odszedl z klasztoru i odwrocil sie od \nswoich braci. Artefakt zostal podzielony na trzy czesci. \nAby je odnalesc bedziesz musial sie zmierzyc z wieloma niebezpieczenistwami, \npulapkami, zagadkami. Po drodze napotkasz postacie ktore beda mialy \ndla ciebie rozne questy poboczne dzieki ktorym zdobedziesz wiecej \npunktow dosiwiadczenia i dzieki czemu twoje punkty zycia sie zwieksza.\n ";
+
+                           for(int i = 0; i < napis.length(); i++)
+                                {
+                                    cout << napis[i];
+                                    Sleep(10);
+                                }
+
+                             cout << endl;
+
+                          cout << "A. W strone ruin? "      <<endl;
+                          cout << "B. W strone pustkowia? " <<endl;
+                          cout << "C. W strone gor? "       <<endl;
+
+                                  wybor1=getch();
+
+                                  switch(tolower(wybor1)){
+
+
+                                            case 97:
+                                              cout << endl;
+                                              cout << "W trakcie podrozy zdobywasz lage "   << endl;
+                                              cout << "Po drodze do ruin napotykasz wilka " << endl;
+                                              cout << "Atakujesz wilka czy udziekasz? "     << endl;
+                                              cout << "1. Atak"                             << endl;
+                                              cout << "2. Ucieczka"                         << endl;
+
+
+
+                  wybor2=getch();
+                  switch(wybor2){
+
+                    case '1':
+                        cout << endl;
+                       Przeciwnicy p1;
+                       p1.wilk();
+
+                       cout << endl;
+
+                        Leczenie z1;
+                       z1.wybor_leczenia();
+
+
+                        cout <<  "Dotarles do ruin" << endl;
+                        break;
+
+                     case '2':
+                        cout << "Uciekasz w poplochu xd ";
+                        break;
+
+
+
+                  }
+                  cout << "W ruinach spotykasz wedrowca "<<endl;
+                        cout <<"witaj nieznajomy nazywa sie Linster mam dlaciebie zadanie w kryptach tych ruin zgobilem"<<endl;
+                        cout<<"swoj magiczny medalion czy mogl bys go dla mnie znalesc"<<endl;
+                        cout << "1. Tak, pomoge Ci"<<endl;
+                        cout << "2. Niestety nie moge Ci pomuc przyszedlem tu w innej sprawie "<<endl;
+                        wybor3=getch();
+                        switch(wybor3)
+                          case '1':
+                           cout << endl;
+                           cout << "Udajesz sie do krypty" <<endl;
+                           cout << "Zza rogu wyskakuje scierwojad i Cie atakuje "<<endl;
+
+                           Sleep(4000);
+
+                           cout << endl;
+
+                          Przeciwnicy p2;
+                          p2.scierwojad();
+                          cout << endl;
+
+                             Leczenie z1;
+                       z1.wybor_leczenia();
+                        cout << endl;
+
+                        cout << "Przeszukujesz scierwojada "<<endl;
+
+                             c=(rand() % 9) + 1;
+
+
+                        if((c==5) || (c==2) || (c==8) ){
+                            cout << "Znalazles przynim amulat " << endl;
+                            cout << "1. Czy chcesz kontynuowac podrozowanie po krypcie"<<endl;
+                            cout << "2. Udaj sie do ruin starego zamku i odaj medalion"<<endl;
+                        }
+                        else {
+                            cout << "Nic nie udalo mi sie znalesc"<<endl;
+                            cout << "1. Czy chcesz kontynuowac podrozowanie po krypcie"<<endl;
+                            cout << "2. Udaj sie do ruin starego zamku "<<endl;
+                                 }
+
+                            wybor4=getch();
+                            switch (wybor4)
+                            {
+                            case '1':
+                                cout << endl;
+                                cout << "W trakcie drogi napotykasz kolejnego scierwojada"<<endl;
+
+                                Sleep(4000);
+
+                                Przeciwnicy p2;
+                                p2.scierwojad();
+
+                                Leczenie z1;
+                                z1.wybor_leczenia();
+
+
+                                cout << "Wtrakcie drogi znajdujesz kufer"<<endl;
+                                cout << "Czy chcesz go otworzyæ?"<<endl;
+                                cout<< "1. Tak"<<endl;
+                                cout<< "2. Nie"<<endl;
+                                wybor5=getch();
+                                switch (wybor5)
+                                {
+                                case '1':
+                                    cout << endl;
+                                    char *nazwa_pliku2 = "C:\\programowanie\\gra\\obrazki\\image3.txt";
+                                             FILE *kufer = NULL;
+
+                                               if((kufer = fopen(nazwa_pliku2,"r")) == NULL)
+                                                   {
+                                                    fprintf(stderr,"Niema takiego pliku%s\n",nazwa_pliku2);
+                                                    return 1;
+                                                   }
+                                                rysuj_zdjecie2(kufer);
+                                                cout << endl;
+
+                                    if ((c==5) || (c==2) || (c==8))
+                                    {
+                                     cout << "W kufrze znalazles zardzewialy miecz i dwie miksturki leczenia "<<endl;
+                                     cout << "teraz mozoszesz sie wroci i oddac medalion Linsterowi"<<endl;
+
+                                     m_m_lecz=m_m_lecz+2;
+                                    }
+                                    else
+                                        {
+
+                                               cout << "W kufrze znalazles zardzewialy miecz i dwie miksturki leczenia. "<<endl;
+                                               cout << "i poszukiwany przez ciebie medalion teraz mozoszesz sie wroci "<<endl;
+                                            cout << "i oddac medalion Linsterowi  ";
+                                                 m_m_lecz=m_m_lecz+2;
+                                        }
+                                    break;
+
+                                }
+                                Sleep(5000);
+
+                                cout <<"Dalej juz nie moze sie udac wracasz sie do Listera aby my oddac medalion Linsterowi  "<<endl;
+                                cout << "Odales medalion i zdobyles 200 pkt doswiadczeniateraz. Teraz mozoesz "<<endl;
+                                cout << "isc do ruin starego zamku w poszukiwaniu jednej z czesci zginionego arti oddac medalion Linsterowiefaktu"<<endl;
+                                         exp=exp+200;
+
+
+                                        Sleep(5000);
+                                         if(exp>250)
+                                          {
+                                             lvl++;
+                                             gracz=gracz+15;
+
+                                                   sndPlaySound( "C:\\programowanie\\gra\\muzyka\\level_up.wav", SND_ASYNC );
+                                                }
+
+                                                char *nazwa_pliku = "C:\\programowanie\\gra\\obrazki\\image6.txt";
+                                                FILE *napis = NULL;
+
+                                                  if((napis = fopen(nazwa_pliku,"r")) == NULL)
+                                                   {
+                                                    fprintf(stderr,"Niema takiego pliku%s\n",nazwa_pliku);
+                                                    return 1;
+                                                   }
+                                                    rysuj_zdjecie(napis);
+                                                    cout << endl;
+                                                    cout << endl;
+
+                                             cout << "Osiagnales: " <<lvl<<" poziom"<<endl;
+
+                                            cout << "Jestes przed glownym wejsciu do zamku po wejsciu napotykasz trzy przejscia ktore wybierasz? ";
+                                            cout << "1. ";
+                                            cout << "2. ";
+                                            cout << "3. ";
+
+                                           cout << endl;
+
+                                            wybor7=getch();
+                                            switch(wybor7)
+                                            {
+                                                case '1':
+                                                    cout << "Wybrales pierwsze przejscie znajdujesz mala miksture leczenia " << m_m_lecz++ << endl;
+                                                    cout << "Podnosisz ja i idziesz dalej napotykasz tajemnicza postac podnosi sie i mowi" << endl;
+                                                    cout << "Nie potrzebnie tu przychodziles zginieeeeesz!!!!!!!!!!! " << endl;
+
+                                                      Przeciwnicy z;
+                                                       z.zjawa();
+
+                                                      Leczenie a;
+                                                       a.wybor_leczenia();
+
+                                                    if (wybor2 = 97 )
+
+                                                         wybor2=getch();
+                                                         switch(wybor2)
+                                                        {
+                                                            cout<<"Ukonczyles pierwsza sciezke. "<<endl;
+                                                            cout << "B" << endl;
+                                                         case 98:
+
+                                                         break;
+                                                        }
+
+
+
+                                                break;
+                                                case '2':
+
+
+                                                break;
+                                                case '3':
+
+
+
+                                                break;
+                                            }
+
+
+
+
+
+                            }
+
+
+                break;
+                case 98:
+                 cout<<"mmmm";
+                break;
+                case 99:
+
+                break;
+
+              }}
+
+          break;
+      case '2':
+              cout << "Statystyki "                  <<endl;
+              cout << "Poziom "               << lvl << endl;
+              cout << "Punkty doswiadczenia " << exp << endl;
+          break;
+      case '3':
+
+              cout << "Bartosz Biskup";
+          break;
+            break;
+      case '4':
+            exit(0);
+      break;
+          default: cout<<"Do zobaczenia";
+
+      }
+      getchar();getchar();
+      system ("cls");
+}
+    return 0;
+
+}
+
