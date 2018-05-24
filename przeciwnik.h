@@ -6,15 +6,23 @@
 #include <time.h>
 #include <iomanip>
 #include <string>
+#include <process.h>
+#include <thread>
 
 
 using namespace std;
 
-
+void __cdecl ThreadProc( void * Args )
+{
+    Sleep(1000);
+    flaga = 1;
+    _endthread();
+}
 
    class Przeciwnicy
  {
  public:
+
 
 
 
@@ -70,9 +78,9 @@ void rysuj_zdjecie3(FILE *postac)
 
 do
 {
-                char *nazwa_pliku = "C:\\programowanie\\gra\\obrazki\\image.txt";
+                char *nazwa_pliku = "E:\\gra\\obrazki\\image.txt";
                 FILE *postac = NULL;
-                char *nazwa_pliku1 = "C:\\programowanie\\gra\\obrazki\\image2.txt";
+                char *nazwa_pliku1 = "E:\\gra\\obrazki\\image2.txt";
                 FILE *postac1 = NULL;
 
                             if(((postac = fopen(nazwa_pliku,"r")) == NULL)||((postac1 = fopen(nazwa_pliku1,"r")) == NULL))
@@ -101,19 +109,20 @@ do
                                 // Sleep(1500);
                                   break;
                             }
-
+                            HANDLE hThread =( HANDLE ) _beginthread( ThreadProc, 0, NULL );
                             znak1=getch();
                             switch(znak1)
                                 {
 
-                                   case 'w': //sluzy do uniku ataku
-                                    if (znak1 == 'w')
+                                    case 'w': //sluzy do uniku ataku
+                                        if(flaga == 0)
+
                                         {
                                             cout << endl;
                                             cout << "Udalo Ci sie zrobic unik "<<endl;
 
                                         }
-                                    else
+                                    else if (flaga == 1)
                                     {
                                      if(wilk_0 > 1)
                                        {
@@ -121,13 +130,14 @@ do
                                         cout<<endl;
                                         cout << "Obrazenia jakie otrzymales "<<d<<endl;
                                         gracz=gracz-d;
+                                        flaga--;
                                   //  Sleep(1500);
 
                                        }}
+                                       break;
+                                       }
 
 
-                                   break;
-                                   }
                                    cout<<"_______________________________"<<endl;
                                    cout << "Pozostalo ci zyc "<<gracz<<endl;
 
@@ -283,5 +293,5 @@ do
 
         zjawa_0=zjawa_0-zjawa_0+30;
   }
- };
+};
 
