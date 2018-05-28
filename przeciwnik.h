@@ -8,13 +8,15 @@
 #include <string>
 #include <process.h>
 #include <thread>
+#include "E:\\gra\\pliki.h\\losowanie.h"
+
 
 
 using namespace std;
 
 void __cdecl ThreadProc( void * Args )
 {
-    Sleep(1000);
+    Sleep(700);
     flaga = 1;
     _endthread();
 }
@@ -22,7 +24,6 @@ void __cdecl ThreadProc( void * Args )
    class Przeciwnicy
  {
  public:
-
 
 
 
@@ -109,6 +110,11 @@ do
                                 // Sleep(1500);
                                   break;
                             }
+                          //  tablica();
+
+                            Losowanie t;
+                            t.tablica();
+
                             HANDLE hThread =( HANDLE ) _beginthread( ThreadProc, 0, NULL );
                             znak1=getch();
                             switch(znak1)
@@ -130,7 +136,7 @@ do
                                         cout<<endl;
                                         cout << "Obrazenia jakie otrzymales "<<d<<endl;
                                         gracz=gracz-d;
-                                        flaga--;
+
                                   //  Sleep(1500);
 
                                        }}
@@ -149,7 +155,7 @@ do
                                         }
 
                                      else;
-
+flaga=0;
 
 }while (wilk_0>0);
                             cout<<"Ilosc zyc wilk: 0"<<endl;
@@ -170,6 +176,7 @@ do
                                           }
                                              else;
                                              wilk_0=wilk_0-wilk_0+15;
+                                             flaga = 0;
 
 }
    int scierwojad()
@@ -193,26 +200,51 @@ do
                             }
 
                                int  c=(rand() % 3)  + 4;
-                                scierwojad_0=scierwojad_0-c;
+
                                 int  d=(rand() % 2)  +4;
 
-                                rysuj_zdjecie3(postac3);
-                                   cout<<endl;
-                                   cout << "Obrazenia jakie zadales "<<c<<endl;
+                                znak3=getch();
 
-
-                                Sleep(1500);
-
-                                if(scierwojad_0>=1) //nie wyswietla i nie atakuje stwora jezeli zabijesz wczesniej stwora
+                                switch(znak3)
                                 {
-                                     rysuj_zdjecie1 (postac4);
-                                     cout<<endl;
-                                     cout << "Obrazenia jakie otrzymales "<<d<<endl;
-                                     gracz=gracz-d;
-                                    Sleep(1500);
+                                    case 'q':
+                                    rysuj_zdjecie3(postac3);
+                                    scierwojad_0=scierwojad_0-c;
+                                    cout<<endl;
+                                    cout << "Obrazenia jakie zadales "<<c<<endl;
+
+
+                                    break;
                                 }
 
+                                Losowanie p;
+                                p.tablica();
 
+                                HANDLE hThread =(HANDLE) _beginthread(ThreadProc, 0, NULL);
+
+                        znak4=getch();
+                         switch(znak4)
+                         {
+                             case 'w':
+                             if ( flaga == 0)
+                             {
+                                 cout << endl;
+                                 cout << "Udalo Ci sie zrobic unik. " << endl;
+                             }
+                                else if (flaga == 1)
+                                {
+                                    if(scierwojad_0>=1) //nie wyswietla i nie atakuje stwora jezeli zabijesz wczesniej stwora
+                                    {
+                                        rysuj_zdjecie1 (postac4);
+                                        cout<<endl;
+                                        cout << "Obrazenia jakie otrzymales "<<d<<endl;
+                                        gracz=gracz-d;
+
+                                    }
+
+                                }
+                                break;
+                         }
                                     cout<<"_______________________________"<<endl;
                                    cout << "Pozostalo ci zyc "<<gracz<<endl;
                                      if(scierwojad_0>=0)
@@ -222,6 +254,7 @@ do
                                       Sleep(1500);
                                      }
                                      else;
+                                flaga = 0;
 
                             }while (scierwojad_0>0);
 
