@@ -262,20 +262,12 @@ public:
 
                                      /*   do
                                          {
-
-
-
                                             if(lecz>0)//sprawdza czy gracz posiada przedmiot leczacy
                                               {
                                                   gracz=gracz+mieso;
                                                      lecz=lecz-1;
-
-
                                                 if((gracz<=50) && (lvl == 0 ) || (gracz<=65) && (lvl == 1 ) || (gracz<=80) && (lvl == 2 )) //sprawdza ilosc zyc gracza jest mniejsz od 50 jesli tak to leczy gracza
-
                                                 {
-
-
                                                    cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
                                                    cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
                                                 }
@@ -297,9 +289,7 @@ public:
                                                       cout << "Uleczyles sie twoj stan zdrowia to: "<<gracz<<endl;
                                                       cout << "pozostalo Ci przedmiotow leczacych: "<<lecz<<endl;
                                                   }
-
                                               }
-
                                             else cout << "Niemasz sie czym uleczyc " ;
                                               }while((gracz=50) || (gracz=65) || (gracz=80));
 */
@@ -349,5 +339,5 @@ int wybor_leczenia()
                              }
 }
 
- };
+};
 
